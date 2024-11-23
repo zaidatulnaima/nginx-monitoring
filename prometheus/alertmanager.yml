@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  global:
+   smtp_smarthost: 'smtp.example.com:587'
+   smtp_from: 'alert@example.com'
+   smtp_auth_username: 'username'
+   smtp_auth_password: 'password'
+
+  route:
+    receiver: 'email-receiver'
+
+  receivers:
+    - name: 'email-receiver'
+    email_configs:
+     - to: 'your-email@example.com'
+

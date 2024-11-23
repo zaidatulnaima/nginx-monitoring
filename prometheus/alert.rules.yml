@@ -1,0 +1,12 @@
+groups:
+  - name: Nginx Alerts
+    rules:
+      - alert: NginxHighResponseTime
+        expr: nginx_http_requests{code="5xx"} > 10
+        for: 5m
+        labels:
+          severity: critical
+        annotations:
+          summary: "High response time on Nginx"
+          description: "Nginx has a high 5xx error rate for more than 5 minutes."
+
